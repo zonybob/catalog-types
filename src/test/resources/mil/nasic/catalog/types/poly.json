@@ -1,0 +1,18 @@
+{
+   "events" : [
+      {
+	      "stupid" : {
+	         "base" : 12,
+	         "other" : "thing"
+	      }
+      },
+      {
+	      "sp" :
+	      {
+	         "base" : 13,
+	         "special" : 15,
+	         "another" : "thingy"
+	      }
+      }   
+   ]
+}

@@ -1,0 +1,25 @@
+{  
+   "header":{  
+      "producer":{  
+         "name":"ABC directory monitor",
+         "node":"1.1.1.1",
+         "version":"1.9.556"
+      },
+      "time":"2009-10-20T14:18:22.123Z",
+      "id":"123456789"
+   },
+   "file_identified":{
+      "data_type" : "FRM",  
+      "file":{  
+         "file_source":"ext system 1",
+         "path":"file:///path/to/staged/file1.ext",
+         "extension" : "stuff"
+      }
+   },
+   "FRM_meta":{
+      "datasets" : "stuff",
+      "nest" : {
+         "inner" : "thing"
+      }
+   }
+}

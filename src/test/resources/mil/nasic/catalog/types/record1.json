@@ -1,0 +1,34 @@
+{
+	"id": "123456789",
+	"type": null,
+	"meta": {
+		"start_time": "2009-10-20T14:18:22.123Z",
+		"end_time": "2009-10-20T16:18:22.123Z",
+		"classification": {
+			"marking": "UNCLASSIFIED//other//stuff"
+		},
+		"geom": [{
+			"type": "Point",
+			"coordinates": [-104.99404,
+			39.75621]
+		},
+		{
+			"type": "Point",
+			"coordinates": [-100.99404,
+			41.75621]
+		},
+		{
+			"type": "LineString",
+			"coordinates": [[-100,
+			40],
+			[-105,
+			45],
+			[-110,
+			55]]
+		}],
+		"tags": ["sequence",
+		"of",
+		"terms"],
+		"extensible": "stuff"
+	}
+}
