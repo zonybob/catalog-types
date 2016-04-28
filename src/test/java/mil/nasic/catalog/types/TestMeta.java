@@ -20,4 +20,23 @@ public class TestMeta {
 
 	}
 
+	@Test
+	public void testMetaEvent() throws Exception {
+
+		String json = IOUtils.toString(TestMeta.class.getResourceAsStream("metaevent.json"));
+		
+		EventMessage message = CatalogJsonUtils.readObject(json, EventMessage.class);
+		
+		
+		MetaEvent metaev = (MetaEvent) message.getEvent();
+		
+		Meta meta = metaev.getMeta();
+
+		Assert.assertEquals(3, meta.getGeom().size());
+		Assert.assertTrue(meta.getClassification().getMarking().contains("UNCLASS"));
+
+		
+		System.out.println(CatalogJsonUtils.writeObject(message));
+	}
+
 }

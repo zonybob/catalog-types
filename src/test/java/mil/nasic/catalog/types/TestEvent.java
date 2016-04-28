@@ -10,37 +10,26 @@ public class TestEvent {
 	public void testBasic() throws Exception {
 		String json = IOUtils.toString(TestEvent.class.getResourceAsStream("fileev1.json"));
 
-		Event ev = CatalogJsonUtils.readObject(json, Event.class);
+		EventMessage em = CatalogJsonUtils.readObject(json, EventMessage.class);
 
-		Assert.assertNotNull(ev.getHeader());
-		Assert.assertNotNull(ev.getHeader().getProducer());
-		Assert.assertNotNull(ev.getHeader().getProducer().getName());
+		Assert.assertNotNull(em.getHeader());
+		Assert.assertNotNull(em.getHeader().getProducer());
+		Assert.assertNotNull(em.getHeader().getProducer().getName());
 
-		Assert.assertNotNull(ev.getFileIdentified());
-		Assert.assertNotNull(ev.getFileIdentified().getFile());
+		Assert.assertTrue(em.getEvent() instanceof FileIdentifiedEvent);
 
 	}
 
 	@Test
-	public void testSplit() throws Exception {
+	public void testCompoundError() throws Exception {
 		String json = IOUtils.toString(TestEvent.class.getResourceAsStream("compoundevent.json"));
-
-		Event ev = CatalogJsonUtils.readObject(json, Event.class);
-
-		Assert.assertNotNull(ev.getHeader());
-		Assert.assertNotNull(ev.getHeader().getProducer());
-		Assert.assertNotNull(ev.getHeader().getProducer().getName());
-
-		Assert.assertNotNull(ev.getFileIdentified());
-		Assert.assertNotNull(ev.getFileIdentified().getFile());
-		
-		Assert.assertEquals(2, ev.splitEvent().size());
-		
-		Assert.assertTrue(ev.hasExtensionMeta());
-		Assert.assertFalse(ev.hasExtensionMetaError());
-		
-		String jsonOut = CatalogJsonUtils.writeObject(ev);
-		System.out.println(jsonOut);
+		IllegalArgumentException expect = null;
+		try {
+			EventMessage ev = CatalogJsonUtils.readObject(json, EventMessage.class);
+		} catch (IllegalArgumentException e) {
+			expect = e;
+		}
+		Assert.assertNotNull(expect);
 
 	}
 

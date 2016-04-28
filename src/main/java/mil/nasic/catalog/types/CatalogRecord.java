@@ -21,10 +21,16 @@ public class CatalogRecord {
 
 	private String type;
 
+	@JsonInclude(Include.NON_NULL)
 	private Meta meta;
 
+	@JsonInclude(Include.NON_NULL)
 	@JsonProperty("file_error")
-	private FileError fileError;
+	private FileErrorEvent fileError;
+
+	@JsonInclude(Include.NON_NULL)
+	@JsonProperty("meta_error")
+	private MetaErrorEvent metaError;
 
 	@JsonInclude(Include.NON_EMPTY)
 	private List<Location> locations = new ArrayList();
@@ -63,12 +69,20 @@ public class CatalogRecord {
 		locations.add(location);
 	}
 
-	public FileError getFileError() {
+	public FileErrorEvent getFileError() {
 		return fileError;
 	}
 
-	public void setFileError(FileError fileError) {
+	public void setFileError(FileErrorEvent fileError) {
 		this.fileError = fileError;
+	}
+
+	public MetaErrorEvent getMetaError() {
+		return metaError;
+	}
+
+	public void setMetaError(MetaErrorEvent metaError) {
+		this.metaError = metaError;
 	}
 
 	@JsonAnyGetter

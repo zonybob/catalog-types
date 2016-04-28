@@ -1,18 +1,7 @@
 package mil.nasic.catalog.types;
 
-public class FileError {
-
-	private String uri;
-
+public class MetaErrorEvent extends Event {
 	private String message;
-
-	public String getUri() {
-		return uri;
-	}
-
-	public void setUri(String uri) {
-		this.uri = uri;
-	}
 
 	public String getMessage() {
 		return message;
@@ -21,5 +10,4 @@ public class FileError {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-
 }

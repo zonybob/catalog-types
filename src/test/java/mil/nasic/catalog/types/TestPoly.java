@@ -32,9 +32,19 @@ import junit.framework.Assert;
 public class TestPoly {
 
 	@Test
+	public void testBaseEvent() throws Exception {
+		String json = IOUtils.toString(TestPoly.class.getResourceAsStream("poly2.json"));
+
+		EventMessage mess = CatalogJsonUtils.readObject(json, EventMessage.class);
+
+		String out = CatalogJsonUtils.writeObject(mess);
+		System.out.println(out);
+	}
+
+	@Test
 	public void testPoly() throws Exception {
 		String json = IOUtils.toString(TestPoly.class.getResourceAsStream("poly.json"));
-		
+
 		EventHolder holder = CatalogJsonUtils.readObject(json, EventHolder.class);
 
 		Assert.assertEquals(2, holder.events.size());

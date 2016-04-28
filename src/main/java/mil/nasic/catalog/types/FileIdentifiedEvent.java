@@ -2,7 +2,7 @@ package mil.nasic.catalog.types;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class FileIdentified {
+public class FileIdentifiedEvent extends Event {
 
 	@JsonProperty("data_type")
 	private String dataType;
