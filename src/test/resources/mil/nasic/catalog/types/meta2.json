@@ -1,4 +1,6 @@
 {
+	"start_time": "2009-10-20T14:18:22.123Z",
+	"end_time": "2009-10-20T16:18:22.123Z",
 	"classification" : {
 	  "marking" : "UNCLASSIFIED//other//stuff"
 	},
@@ -21,8 +23,5 @@
 	"tags": ["sequence",
 	"of",
 	"terms"],
-	"extensible": "stuff",
-	"start_time": "2009-10-20T14:18:22.123Z",
-	"end_time": "2009-10-20T16:18:22.123Z"
-	
+	"extensible": "stuff"
 }

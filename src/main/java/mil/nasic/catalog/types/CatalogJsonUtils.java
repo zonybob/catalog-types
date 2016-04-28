@@ -3,10 +3,10 @@ package mil.nasic.catalog.types;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.List;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
@@ -46,6 +46,16 @@ public class CatalogJsonUtils {
 	public static void writeObject(Object o, OutputStream os) throws JsonProcessingException, IOException {
 		// mapper will flush
 		getMapper().writeValue(os, o);
+	}
+
+	public static boolean areJsonFormsEqual(Object o1, Object o2) throws JsonProcessingException, IOException {
+		String sr1 = getMapper().writeValueAsString(o1);
+		String sr2 = getMapper().writeValueAsString(o2);
+		
+		JsonNode n1 = mapper.readTree(sr1);
+		JsonNode n2 = mapper.readTree(sr2);
+		
+		return n1.equals(n2);
 	}
 
 }
