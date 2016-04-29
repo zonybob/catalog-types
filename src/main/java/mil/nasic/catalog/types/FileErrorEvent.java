@@ -1,25 +1,18 @@
 package mil.nasic.catalog.types;
 
-public class FileErrorEvent extends Event{
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 
-	private String uri;
+public class FileErrorEvent extends Event {
 
-	private String message;
+	@JsonUnwrapped
+	private FileErrorInfo fileError;
 
-	public String getUri() {
-		return uri;
+	public FileErrorInfo getFileError() {
+		return fileError;
 	}
 
-	public void setUri(String uri) {
-		this.uri = uri;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
+	public void setFileError(FileErrorInfo fileError) {
+		this.fileError = fileError;
 	}
 
 }

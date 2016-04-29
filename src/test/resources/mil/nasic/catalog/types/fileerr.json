@@ -1,0 +1,16 @@
+{  
+   "header":{  
+      "producer":{  
+         "name":"ABC directory monitor",
+         "node":"1.1.1.1",
+         "version":"1.9.556"
+      },
+      "time":"2011-10-20T14:18:22.123Z",
+      "id":"10214292016"
+   },
+   "file_error":{
+      "message" : "errmsg",
+      "uri" : "uri",
+      "extension" : "ext"
+   }
+}

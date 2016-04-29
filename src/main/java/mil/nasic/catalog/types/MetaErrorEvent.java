@@ -1,13 +1,20 @@
 package mil.nasic.catalog.types;
 
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonDeserialize(using = MetaErrorEventDeserializer.class)
 public class MetaErrorEvent extends Event {
-	private String message;
 
-	public String getMessage() {
-		return message;
+	@JsonUnwrapped
+	private ErrorInfo error;
+
+	public ErrorInfo getError() {
+		return error;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public void setError(ErrorInfo error) {
+		this.error = error;
 	}
+
 }

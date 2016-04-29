@@ -34,7 +34,6 @@ public class TestMeta {
 
 		Assert.assertEquals(3, meta.getGeom().size());
 		Assert.assertTrue(meta.getClassification().getMarking().contains("UNCLASS"));
-
 		
 		System.out.println(CatalogJsonUtils.writeObject(message));
 	}

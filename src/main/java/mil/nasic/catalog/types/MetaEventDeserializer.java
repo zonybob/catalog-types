@@ -13,6 +13,12 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 
+/**
+ * Provides wrapping of the Meta object into MetaEvent.
+ * 
+ * @author jcstewart
+ *
+ */
 public class MetaEventDeserializer extends JsonDeserializer<MetaEvent> {
 
 	@Override
