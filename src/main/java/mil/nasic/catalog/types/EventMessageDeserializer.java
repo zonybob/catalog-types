@@ -22,6 +22,8 @@ public class EventMessageDeserializer extends JsonDeserializer<EventMessage> {
 		typeMap.put(Event.FILE_ERROR, FileErrorEvent.class);
 		typeMap.put(Event.META, MetaEvent.class);
 		typeMap.put(Event.META_ERROR, MetaErrorEvent.class);
+		typeMap.put(Event.LOCATION_ADD, LocationAddEvent.class);
+		typeMap.put(Event.LOCATION_REMOVE, LocationRemoveEvent.class);
 	}
 
 	@Override

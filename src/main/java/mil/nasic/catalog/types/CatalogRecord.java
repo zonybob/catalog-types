@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -93,6 +94,16 @@ public class CatalogRecord {
 	@JsonAnySetter
 	public void add(String key, Object value) {
 		ext.put(key, value);
+	}
+
+	@JsonIgnore
+	public Location getLocationFor(String name, String uri) {
+		for (Location location : locations) {
+			if (name.equals(location.getName()) && uri.equals(location.getUri())) {
+				return location;
+			}
+		}
+		return null;
 	}
 
 }
