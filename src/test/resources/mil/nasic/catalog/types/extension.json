@@ -1,0 +1,22 @@
+{
+		"header": {
+			"producer": {
+				"name": "ABC directory monitor",
+				"node": "1.1.1.1",
+				"version": "1.9.556"
+			},
+			"time": "2009-10-20T14:18:22.123Z",
+			"id": "837522016"
+		},
+		"extrastuff": {
+			"file_source": "ext system 1",
+			"origin": "file:///path/to/ingest/file1.ext",
+			"path": "file:///path/to/staged/file1.ext",
+			"file_size": 9999999,
+			"discovered_time": "2009-10-20T12:15:22.123Z",
+			"modified_time": "2009-10-20T11:15:00.123Z",
+			"created_time": "2009-10-20T11:15:00.123Z",
+			"sha1_hash": "AB#$TBBSDFDSA"
+		}
+
+}

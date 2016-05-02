@@ -21,6 +21,23 @@ public class TestEvent {
 	}
 
 	@Test
+	public void testExtension() throws Exception {
+		String json = IOUtils.toString(TestEvent.class.getResourceAsStream("extension.json"));
+
+		EventMessage em = CatalogJsonUtils.readObject(json, EventMessage.class);
+
+		Assert.assertNotNull(em.getHeader());
+		Assert.assertNotNull(em.getHeader().getProducer());
+		Assert.assertNotNull(em.getHeader().getProducer().getName());
+
+		Assert.assertTrue(em.getEvent() instanceof Event);
+		Assert.assertEquals("extrastuff", em.getEvent().getType());
+		Assert.assertEquals("ext system 1", em.getEvent().getExt().get("file_source"));
+		
+
+	}
+
+	@Test
 	public void testCompoundError() throws Exception {
 		String json = IOUtils.toString(TestEvent.class.getResourceAsStream("compoundevent.json"));
 		IllegalArgumentException expect = null;
