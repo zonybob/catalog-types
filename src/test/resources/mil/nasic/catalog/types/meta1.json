@@ -2,22 +2,11 @@
 	"classification" : {
 	  "marking" : "UNCLASSIFIED//other//stuff"
 	},
-	"geom": [{
+	"geom": {
 		"type": "Point",
 		"coordinates": [-104.99404,
 		39.75621]
 	},
-	{
-		"type": "Point",
-		"coordinates": [-100.99404,
-		41.75621]
-	},
-	{
-      "type": "LineString",
-      "coordinates": [[-100, 40], [-105, 45], [-110, 55]]
-    }
-	
-	],
 	"tags": ["sequence",
 	"of",
 	"terms"],

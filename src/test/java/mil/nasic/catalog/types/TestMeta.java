@@ -1,11 +1,10 @@
 package mil.nasic.catalog.types;
 
 import org.apache.commons.io.IOUtils;
+import org.geojson.LineString;
+import org.geojson.Point;
 import org.junit.Assert;
 import org.junit.Test;
-
-import mil.nasic.catalog.types.CatalogJsonUtils;
-import mil.nasic.catalog.types.Meta;
 
 public class TestMeta {
 
@@ -15,7 +14,7 @@ public class TestMeta {
 		String json = IOUtils.toString(TestMeta.class.getResourceAsStream("meta1.json"));
 		Meta meta = CatalogJsonUtils.readObject(json, Meta.class);
 
-		Assert.assertEquals(3, meta.getGeom().size());
+		Assert.assertTrue(meta.getGeom() instanceof Point);
 		Assert.assertTrue(meta.getClassification().getMarking().contains("UNCLASS"));
 
 	}
@@ -32,7 +31,7 @@ public class TestMeta {
 		
 		Meta meta = metaev.getMeta();
 
-		Assert.assertEquals(3, meta.getGeom().size());
+        Assert.assertTrue(meta.getGeom() instanceof LineString);
 		Assert.assertTrue(meta.getClassification().getMarking().contains("UNCLASS"));
 		
 		System.out.println(CatalogJsonUtils.writeObject(message));

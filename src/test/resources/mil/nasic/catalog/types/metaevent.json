@@ -14,21 +14,7 @@
       "classification":{  
          "marking":"UNCLASSIFIED//other//stuff"
       },
-      "geom":[  
-         {  
-            "type":"Point",
-            "coordinates":[  
-               -104.99404,
-               39.75621
-            ]
-         },
-         {  
-            "type":"Point",
-            "coordinates":[  
-               -100.99404,
-               41.75621
-            ]
-         },
+      "geom":  
          {  
             "type":"LineString",
             "coordinates":[  
@@ -45,8 +31,7 @@
                   55
                ]
             ]
-         }
-      ],
+         },
       "tags":[  
          "sequence",
          "of",
