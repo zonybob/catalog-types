@@ -4,6 +4,10 @@ public class LocationRemoveEvent extends Event{
 	
 	private Location location;
 
+	public LocationRemoveEvent(){
+		setType(Event.LOCATION_REMOVE);
+	}
+	
 	public Location getLocation() {
 		return location;
 	}

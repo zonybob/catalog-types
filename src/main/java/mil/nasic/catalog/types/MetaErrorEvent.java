@@ -9,6 +9,10 @@ public class MetaErrorEvent extends Event {
 	@JsonUnwrapped
 	private ErrorInfo error;
 
+	public MetaErrorEvent(){
+		setType(Event.META_ERROR);
+	}
+	
 	public ErrorInfo getError() {
 		return error;
 	}

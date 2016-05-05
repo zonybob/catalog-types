@@ -11,6 +11,7 @@ public class Event {
 
 	public static final String FILE_IDENTIFIED = "file_identified";
 	public static final String FILE_ERROR = "file_error";
+	public static final String FEATURE = "feature";
 	public static final String LOCATION_ADD = "location_add";
 	public static final String LOCATION_REMOVE = "location_remove";
 	public static final String META = "meta";

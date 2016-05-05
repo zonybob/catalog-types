@@ -9,6 +9,10 @@ public class MetaEvent extends Event {
 	@JsonUnwrapped
 	private Meta meta;
 
+	public MetaEvent() {
+		setType(Event.META);
+	}
+
 	public Meta getMeta() {
 		return meta;
 	}

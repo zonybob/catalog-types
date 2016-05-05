@@ -8,6 +8,10 @@ public class FileIdentifiedEvent extends Event {
 	private String dataType;
 
 	private FileInfo file;
+	
+	public FileIdentifiedEvent(){
+		setType(Event.FILE_IDENTIFIED);
+	}
 
 	public FileInfo getFile() {
 		return file;

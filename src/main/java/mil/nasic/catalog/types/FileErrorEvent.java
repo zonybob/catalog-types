@@ -6,6 +6,11 @@ public class FileErrorEvent extends Event {
 
 	@JsonUnwrapped
 	private FileErrorInfo fileError;
+	
+	public FileErrorEvent(){
+		setType(Event.FILE_ERROR);
+	}
+
 
 	public FileErrorInfo getFileError() {
 		return fileError;
