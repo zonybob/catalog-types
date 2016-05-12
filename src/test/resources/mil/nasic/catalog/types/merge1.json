@@ -1,0 +1,12 @@
+{
+  "replace" : "replaceme",
+  "leavealone" : "leavealone",
+  "makenull" : "notnull",
+  "makeobjnull" : { "removeme" : "removeme"},
+  "nestedchanges" : {
+	  "replace" : "replaceme",
+	  "leavealone" : "leavealone",
+	  "makenull" : "notnull",
+	  "makeobjnull" : { "removeme" : "removeme"}
+  }
+}

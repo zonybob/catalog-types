@@ -18,92 +18,68 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class CatalogRecord {
 
-	private String id;
+    private String id;
 
-	private String type;
+    private String type;
 
-	@JsonInclude(Include.NON_NULL)
-	private Meta meta;
+    @JsonInclude(Include.NON_NULL)
+    private Meta meta;
 
-	@JsonInclude(Include.NON_NULL)
-	@JsonProperty("file_error")
-	private FileErrorInfo fileError;
+    @JsonInclude(Include.NON_EMPTY)
+    private List<Location> locations = new ArrayList();
 
-	@JsonInclude(Include.NON_NULL)
-	@JsonProperty("meta_error")
-	private ErrorInfo metaError;
+    private Map<String, Object> ext = new HashMap();
 
-	@JsonInclude(Include.NON_EMPTY)
-	private List<Location> locations = new ArrayList();
+    public String getId() {
+        return id;
+    }
 
-	private Map<String, Object> ext = new HashMap();
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public String getType() {
-		return type;
-	}
+    public Meta getMeta() {
+        return meta;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public void setMeta(Meta meta) {
+        this.meta = meta;
+    }
 
-	public Meta getMeta() {
-		return meta;
-	}
+    public List<Location> getLocations() {
+        return locations;
+    }
 
-	public void setMeta(Meta meta) {
-		this.meta = meta;
-	}
+    public void addLocations(Location location) {
+        locations.add(location);
+    }
 
-	public List<Location> getLocations() {
-		return locations;
-	}
+    @JsonAnyGetter
+    public Map<String, Object> getExt() {
+        return ext;
+    }
 
-	public void addLocations(Location location) {
-		locations.add(location);
-	}
+    @JsonAnySetter
+    public void add(String key, Object value) {
+        ext.put(key, value);
+    }
 
-	public FileErrorInfo getFileError() {
-		return fileError;
-	}
-
-	public void setFileError(FileErrorInfo fileError) {
-		this.fileError = fileError;
-	}
-
-	public ErrorInfo getMetaError() {
-		return metaError;
-	}
-
-	public void setMetaError(ErrorInfo metaError) {
-		this.metaError = metaError;
-	}
-
-	@JsonAnyGetter
-	public Map<String, Object> getExt() {
-		return ext;
-	}
-
-	@JsonAnySetter
-	public void add(String key, Object value) {
-		ext.put(key, value);
-	}
-
-	@JsonIgnore
-	public Location getLocationFor(String name, String uri) {
-		for (Location location : locations) {
-			if (name.equals(location.getName()) && uri.equals(location.getUri())) {
-				return location;
-			}
-		}
-		return null;
-	}
+    @JsonIgnore
+    public Location getLocationFor(String name, String uri) {
+        for (Location location : locations) {
+            if (name.equals(location.getName()) && uri.equals(location.getUri())) {
+                return location;
+            }
+        }
+        return null;
+    }
 
 }

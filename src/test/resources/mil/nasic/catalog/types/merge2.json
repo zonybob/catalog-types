@@ -1,0 +1,14 @@
+{
+  "replace" : "replaced",
+  "makenull" : null,  
+  "makeobjnull" : null,
+  "added" : "added",
+  "addedobj" : {"added" : "added"},
+  "nestedchanges" : {
+    "replace" : "replaced",
+    "makenull" : null,  
+    "makeobjnull" : null,
+    "added" : "added",
+    "addedobj" : {"added" : "added"}
+  }
+}

@@ -8,36 +8,46 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
 
 public class Location {
 
-	private String name;
+    private String name;
 
-	private String uri;
+    private String uri;
 
-	private Map<String, Object> ext = new HashMap();
+    private boolean remove = false;
 
-	public String getName() {
-		return name;
-	}
+    private Map<String, Object> ext = new HashMap();
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getUri() {
-		return uri;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setUri(String uri) {
-		this.uri = uri;
-	}
+    public String getUri() {
+        return uri;
+    }
 
-	@JsonAnyGetter
-	public Map<String, Object> getExt() {
-		return ext;
-	}
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
 
-	@JsonAnySetter
-	public void add(String key, Object value) {
-		ext.put(key, value);
-	}
+    public boolean isRemove() {
+        return remove;
+    }
+
+    public void setRemove(boolean remove) {
+        this.remove = remove;
+    }
+
+    @JsonAnyGetter
+    public Map<String, Object> getExt() {
+        return ext;
+    }
+
+    @JsonAnySetter
+    public void add(String key, Object value) {
+        ext.put(key, value);
+    }
 
 }

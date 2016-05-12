@@ -1,29 +1,29 @@
-
-{
-		"header": {
-			"producer": {
-				"name": "ABC directory monitor",
-				"node": "1.1.1.1",
-				"version": "1.9.556"
-			},
-			"time": "2009-10-20T14:18:22.123Z",
-			"id": "140542016"
-		},
-		"feature" :
-{
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [0, 0]
+{  
+   "header":{  
+      "producer":{  
+         "name":"ABC directory monitor",
+         "node":"1.1.1.1",
+         "version":"1.9.556"
       },
-      "properties": {
-        "name": "null island"
-      }
-    }
-  ]
+      "time":"2009-10-20T14:18:22.123Z",
+      "id":"140542016"
+   },
+   "feature":{  
+      "type":"FeatureCollection",
+      "features":[  
+         {  
+            "type":"Feature",
+            "geometry":{  
+               "type":"Point",
+               "coordinates":[  
+                  0,
+                  0
+               ]
+            },
+            "properties":{  
+               "name":"null island"
+            }
+         }
+      ]
+   }
 }
-}
-
