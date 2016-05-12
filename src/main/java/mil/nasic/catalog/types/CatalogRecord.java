@@ -22,10 +22,8 @@ public class CatalogRecord {
 
     private String type;
 
-    @JsonInclude(Include.NON_NULL)
     private Meta meta;
 
-    @JsonInclude(Include.NON_EMPTY)
     private List<Location> locations = new ArrayList();
 
     private Map<String, Object> ext = new HashMap();
@@ -56,6 +54,10 @@ public class CatalogRecord {
 
     public List<Location> getLocations() {
         return locations;
+    }
+
+    public void setLocations(List<Location> locations) {
+        this.locations = locations;
     }
 
     public void addLocations(Location location) {

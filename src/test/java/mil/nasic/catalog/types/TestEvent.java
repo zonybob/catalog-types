@@ -17,6 +17,9 @@ public class TestEvent {
 		Assert.assertNotNull(em.getHeader().getProducer().getName());
 
 		Assert.assertTrue(em.getEvent() instanceof FileIdentifiedEvent);
+		
+        Assert.assertEquals("123456789", em.getHeader().getGuid());
+        Assert.assertEquals(2, em.getHeader().getParent_id().size());
 
 	}
 
