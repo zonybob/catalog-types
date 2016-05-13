@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @JsonDeserialize(using = FeatureEventDeserializer.class)
 @JsonSerialize(using = FeatureEventSerializer.class)
+@EventType(type = "feature")
 public class FeatureEvent extends Event {
 
 	private Feature feature;
@@ -15,7 +16,7 @@ public class FeatureEvent extends Event {
 	private FeatureCollection features;
 
 	public FeatureEvent() {
-		setType(Event.FEATURE);
+	
 	}
 
 	public FeatureCollection getFeatures() {

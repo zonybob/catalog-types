@@ -17,9 +17,9 @@ public class TestEvent {
 		Assert.assertNotNull(em.getHeader().getProducer().getName());
 
 		Assert.assertTrue(em.getEvent() instanceof FileIdentifiedEvent);
-		
-        Assert.assertEquals("123456789", em.getHeader().getGuid());
-        Assert.assertEquals(2, em.getHeader().getParent_id().size());
+
+		Assert.assertEquals("123456789", em.getHeader().getGuid());
+		Assert.assertEquals(2, em.getHeader().getParent_id().size());
 
 	}
 
@@ -33,10 +33,27 @@ public class TestEvent {
 		Assert.assertNotNull(em.getHeader().getProducer());
 		Assert.assertNotNull(em.getHeader().getProducer().getName());
 
-		Assert.assertTrue(em.getEvent() instanceof Event);
-		Assert.assertEquals("extrastuff", em.getEvent().getType());
+		Assert.assertTrue(em.getEvent() instanceof ExtensionEvent);
+		ExtensionEvent extEv = (ExtensionEvent) em.getEvent();
+		Assert.assertEquals("extrastuff", extEv.getTypeName());
 		Assert.assertEquals("ext system 1", em.getEvent().getExt().get("file_source"));
-		
+
+	}
+
+	@Test
+	public void testCustom() throws Exception {
+		String json = IOUtils.toString(TestEvent.class.getResourceAsStream("extension.json"));
+		EventMessage em = CatalogJsonUtils.readObject(json, EventMessage.class);
+
+		CustomEvent ev = new CustomEvent();
+		EventTypeRegistry.registerClass(ev.getClass());
+		em.setEvent(ev);
+
+		String ser = CatalogJsonUtils.writeObject(em);
+		Assert.assertTrue(ser.contains("custom"));
+
+		EventMessage read = CatalogJsonUtils.readObject(ser, EventMessage.class);
+		Assert.assertTrue(em.getEvent() instanceof CustomEvent);
 
 	}
 

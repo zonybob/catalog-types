@@ -1,11 +1,17 @@
 package mil.nasic.catalog.types;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -15,59 +21,49 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 public class EventMessageDeserializer extends JsonDeserializer<EventMessage> {
 
-    private static final Map<String, Class<? extends Event>> typeMap = new HashMap();
+	@Override
+	public EventMessage deserialize(JsonParser jsonParser, DeserializationContext deserializationContext)
+			throws IOException {
+		ObjectCodec oc = jsonParser.getCodec();
+		JsonNode node = oc.readTree(jsonParser);
 
-    static {
-        typeMap.put(Event.FILE_IDENTIFIED, FileIdentifiedEvent.class);
-        typeMap.put(Event.FILE_ERROR, FileErrorEvent.class);
-        typeMap.put(Event.CATALOG, CatalogEvent.class);
-        typeMap.put(Event.NEWDATA, NewDataEvent.class);
-        typeMap.put(Event.META, MetaEvent.class);
-        typeMap.put(Event.META_ERROR, MetaErrorEvent.class);
-        typeMap.put(Event.LOCATION_ADD, LocationAddEvent.class);
-        typeMap.put(Event.LOCATION_REMOVE, LocationRemoveEvent.class);
-        typeMap.put(Event.FEATURE, FeatureEvent.class);
-    }
+		Iterator<String> fields = node.fieldNames();
+		List<String> fieldNames = new ArrayList();
+		while (fields.hasNext()) {
+			fieldNames.add(fields.next());
+		}
 
-    @Override
-    public EventMessage deserialize(JsonParser jsonParser, DeserializationContext deserializationContext)
-            throws IOException {
-        ObjectCodec oc = jsonParser.getCodec();
-        JsonNode node = oc.readTree(jsonParser);
+		// validate
+		if (!fieldNames.contains("header")) {
+			throw new IllegalArgumentException("event message does not contain header");
+		} else if (fieldNames.size() != 2) {
+			throw new IllegalArgumentException("event message may only contain 1 event");
+		}
 
-        Iterator<String> fields = node.fieldNames();
-        List<String> fieldNames = new ArrayList();
-        while (fields.hasNext()) {
-            fieldNames.add(fields.next());
-        }
+		fieldNames.remove("header");
 
-        // validate
-        if (!fieldNames.contains("header")) {
-            throw new IllegalArgumentException("event message does not contain header");
-        } else if (fieldNames.size() != 2) {
-            throw new IllegalArgumentException("event message may only contain 1 event");
-        }
+		// create event message
+		EventMessage em = new EventMessage();
+		EventHeader header = oc.treeToValue(node.get("header"), EventHeader.class);
+		em.setHeader(header);
 
-        fieldNames.remove("header");
+		String eventType = fieldNames.get(0);
+		Event event = null;
 
-        // create event message
-        EventMessage em = new EventMessage();
-        EventHeader header = oc.treeToValue(node.get("header"), EventHeader.class);
-        em.setHeader(header);
+		Class<? extends Event> evClazz = EventTypeRegistry.getClassForType(eventType);
 
-        String eventType = fieldNames.get(0);
-        Event event = null;
+		if (evClazz != null) {
+			event = oc.treeToValue(node.get(eventType), evClazz);
+		} else {
+			// Extension Event
+			ExtensionEvent exEv = oc.treeToValue(node.get(eventType), ExtensionEvent.class);
+			exEv.setTypeName(eventType);
+			event = exEv;
+		}
 
-        if (typeMap.containsKey(eventType)) {
-            event = oc.treeToValue(node.get(eventType), typeMap.get(eventType));
-        } else {
-            // Extension Event
-            event = oc.treeToValue(node.get(eventType), Event.class);
-        }
+		em.setEvent(event);
 
-        event.setType(eventType);
-        em.setEvent(event);
+		return em;
+	}
 
-        return em;
-    }
 }

@@ -1,14 +1,14 @@
 package mil.nasic.catalog.types;
 
-public class LocationAddEvent extends Event{
-	
+@EventType(type = "location_add")
+public class LocationAddEvent extends Event {
+
 	private Location location;
 
-	public LocationAddEvent(){
-		setType(Event.LOCATION_ADD);
+	public LocationAddEvent() {
+
 	}
 
-	
 	public Location getLocation() {
 		return location;
 	}
@@ -16,6 +16,5 @@ public class LocationAddEvent extends Event{
 	public void setLocation(Location location) {
 		this.location = location;
 	}
-	
 
 }

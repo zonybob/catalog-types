@@ -11,21 +11,21 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  *
  */
 @JsonDeserialize(using = CatalogEventDeserializer.class)
+@EventType(type = "catalog")
 public class CatalogEvent extends Event {
 
-    @JsonUnwrapped
-    private CatalogRecord catalog;
+	@JsonUnwrapped
+	private CatalogRecord catalog;
 
-    public CatalogEvent() {
-        setType(Event.CATALOG);
-    }
+	public CatalogEvent() {
+	}
 
-    public CatalogRecord getCatalog() {
-        return catalog;
-    }
+	public CatalogRecord getCatalog() {
+		return catalog;
+	}
 
-    public void setCatalog(CatalogRecord catalog) {
-        this.catalog = catalog;
-    }
+	public void setCatalog(CatalogRecord catalog) {
+		this.catalog = catalog;
+	}
 
 }

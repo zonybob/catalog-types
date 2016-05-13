@@ -2,6 +2,7 @@ package mil.nasic.catalog.types;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@EventType(type = "file_identified")
 public class FileIdentifiedEvent extends Event {
 
 	@JsonProperty("data_type")
@@ -10,7 +11,7 @@ public class FileIdentifiedEvent extends Event {
 	private FileInfo file;
 	
 	public FileIdentifiedEvent(){
-		setType(Event.FILE_IDENTIFIED);
+		
 	}
 
 	public FileInfo getFile() {

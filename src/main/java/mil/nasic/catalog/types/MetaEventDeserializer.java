@@ -1,11 +1,6 @@
 package mil.nasic.catalog.types;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -31,7 +26,6 @@ public class MetaEventDeserializer extends JsonDeserializer<MetaEvent> {
 
 		MetaEvent me = new MetaEvent();
 		me.setMeta(meta);
-		me.setType("meta");
 
 		return me;
 	}
