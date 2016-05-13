@@ -20,6 +20,11 @@ public class CatalogEvent extends Event {
 	public CatalogEvent() {
 	}
 
+	public CatalogEvent(CatalogRecord catalog) {
+		super();
+		this.catalog = catalog;
+	}
+
 	public CatalogRecord getCatalog() {
 		return catalog;
 	}

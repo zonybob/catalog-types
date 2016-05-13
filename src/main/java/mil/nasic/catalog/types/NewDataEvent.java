@@ -11,7 +11,11 @@ public class NewDataEvent extends Event {
 	private CatalogRecord catalog;
 
 	public NewDataEvent() {
+	}
 
+	public NewDataEvent(CatalogRecord catalog) {
+		super();
+		this.catalog = catalog;
 	}
 
 	public CatalogRecord getCatalog() {

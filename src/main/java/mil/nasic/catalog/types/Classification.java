@@ -4,6 +4,15 @@ public class Classification {
 
 	private String marking;
 
+	public Classification() {
+		super();
+	}
+
+	public Classification(String marking) {
+		super();
+		this.marking = marking;
+	}
+
 	public String getMarking() {
 		return marking;
 	}

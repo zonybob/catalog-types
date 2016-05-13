@@ -11,6 +11,16 @@ public class EventMessage {
 
 	private Event event;
 
+	public EventMessage() {
+		super();
+	}
+
+	public EventMessage(EventHeader header, Event event) {
+		super();
+		this.header = header;
+		this.event = event;
+	}
+
 	public EventHeader getHeader() {
 		return header;
 	}

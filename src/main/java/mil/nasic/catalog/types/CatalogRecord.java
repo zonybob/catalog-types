@@ -26,7 +26,8 @@ public class CatalogRecord {
 
     private List<Location> locations = new ArrayList();
 
-    private Map<String, Object> ext = new HashMap();
+    private Map<String, Object> ext = new HashMap();    
+    
 
     public String getId() {
         return id;

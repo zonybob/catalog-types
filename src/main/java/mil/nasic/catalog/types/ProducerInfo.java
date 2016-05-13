@@ -12,6 +12,18 @@ public class ProducerInfo {
 	private String version;
 	private Map<String, Object> ext = new HashMap();
 
+	public ProducerInfo() {
+		super();
+	}
+
+	public ProducerInfo(String name, String node, String version, Map<String, Object> ext) {
+		super();
+		this.name = name;
+		this.node = node;
+		this.version = version;
+		this.ext = ext;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -47,31 +59,36 @@ public class ProducerInfo {
 	}
 
 	public static class Builder {
-	    ProducerInfo _pi = new ProducerInfo();
-	    public Builder(){}
-	    
-	    public ProducerInfo build(){
-	        return _pi;
-	    }
-	    
-	    public ProducerInfo.Builder name(String name){
-	        _pi.name = name;
-	        return this;
-	    }
-	    
-        public ProducerInfo.Builder node(String node){
-            _pi.node = node;
-            return this;
-        }
+		private String name;
+		private String node;
+		private String version;
+		private Map<String, Object> ext = new HashMap();
 
-        public ProducerInfo.Builder version(String version){
-            _pi.version = version;
-            return this;
-        }
-        
-        public ProducerInfo.Builder ext(String key, Object value){
-            _pi.ext.put(key, value);
-            return this;
-        }
+		public Builder() {
+		}
+
+		public ProducerInfo build() {
+			return new ProducerInfo(name, node, version, ext);
+		}
+
+		public ProducerInfo.Builder name(String name) {
+			this.name = name;
+			return this;
+		}
+
+		public ProducerInfo.Builder node(String node) {
+			this.node = node;
+			return this;
+		}
+
+		public ProducerInfo.Builder version(String version) {
+			this.version = version;
+			return this;
+		}
+
+		public ProducerInfo.Builder ext(String key, Object value) {
+			this.ext.put(key, value);
+			return this;
+		}
 	}
 }
