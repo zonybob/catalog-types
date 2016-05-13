@@ -14,6 +14,7 @@
 		<junit.version>4.11</junit.version>
 		<commons.io.version>2.4</commons.io.version>
 		<geo-json.version>1.6</geo-json.version>
+		<slf4j.version>1.7.6</slf4j.version>
 	</properties>
 
 	<dependencies>
@@ -33,12 +34,20 @@
 			<artifactId>jackson-datatype-joda</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
-		<!--  geo -->
+		<!-- geo -->
 		<dependency>
 			<groupId>de.grundid.opendatalab</groupId>
 			<artifactId>geojson-jackson</artifactId>
 			<version>${geo-json.version}</version>
 		</dependency>
+
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
 
 
 		<dependency>
