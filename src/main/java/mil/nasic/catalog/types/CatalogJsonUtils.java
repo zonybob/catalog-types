@@ -74,11 +74,16 @@ public class CatalogJsonUtils {
      * @throws IOException
      * @throws JsonProcessingException
      */
+
     public static String mergeJson(String orig, String update) throws JsonProcessingException, IOException {
+        return mergeJson(orig, update, false);
+    }
+
+    public static String mergeJson(String orig, String update, boolean applyNulls) throws JsonProcessingException, IOException {
         ObjectNode origNode = (ObjectNode) getMapper().readTree(orig);
         ObjectNode updateNode = (ObjectNode) getMapper().readTree(update);
 
-        return getMapper().writeValueAsString(mergeJsonNode(origNode, updateNode));
+        return getMapper().writeValueAsString(mergeJsonNode(origNode, updateNode, applyNulls));
     }
 
     /**
@@ -88,6 +93,17 @@ public class CatalogJsonUtils {
      * @return
      */
     public static JsonNode mergeJsonNode(ObjectNode mainNode, ObjectNode updateNode) {
+        return mergeJsonNode(mainNode, updateNode, false);
+    }
+
+    /**
+     * 
+     * @param mainNode
+     * @param updateNode
+     * @param applyNulls
+     * @return
+     */
+    public static JsonNode mergeJsonNode(ObjectNode mainNode, ObjectNode updateNode, boolean applyNulls) {
 
         Iterator<String> fieldNames = updateNode.fieldNames();
         while (fieldNames.hasNext()) {
@@ -95,6 +111,10 @@ public class CatalogJsonUtils {
             String fieldName = fieldNames.next();
             JsonNode newNode = updateNode.get(fieldName);
             JsonNode currNode = mainNode.get(fieldName);
+
+            if (newNode.isNull() && !applyNulls) {
+                continue;
+            }
 
             if (currNode == null) {
                 mainNode.set(fieldName, newNode);
@@ -113,7 +133,7 @@ public class CatalogJsonUtils {
                     continue;
                 }
 
-                mergeJsonNode((ObjectNode) currNode, (ObjectNode) newNode);
+                mergeJsonNode((ObjectNode) currNode, (ObjectNode) newNode, applyNulls);
                 continue;
             }
 

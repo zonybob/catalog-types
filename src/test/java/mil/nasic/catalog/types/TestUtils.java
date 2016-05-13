@@ -33,6 +33,35 @@ public class TestUtils {
 
         Assert.assertEquals("replaced", node.get("replace").asText());
         Assert.assertEquals("leavealone", node.get("leavealone").asText());
+        Assert.assertFalse(node.get("makenull").isNull());
+        Assert.assertFalse(node.get("makeobjnull").isNull());
+        Assert.assertEquals("added", node.get("added").asText());
+
+        JsonNode added = node.get("addedobj");
+        Assert.assertEquals("added", added.get("added").asText());
+
+        JsonNode nested = node.get("nestedchanges");
+
+        Assert.assertEquals("replaced", nested.get("replace").asText());
+        Assert.assertEquals("leavealone", nested.get("leavealone").asText());
+        Assert.assertFalse(nested.get("makenull").isNull());
+        Assert.assertFalse(nested.get("makeobjnull").isNull());
+        Assert.assertEquals("added", nested.get("added").asText());
+        added = nested.get("addedobj");
+        Assert.assertEquals("added", added.get("added").asText());
+    }
+    
+    @Test
+    public void testMergeApplyNull() throws Exception {
+        String json1 = IOUtils.toString(TestMeta.class.getResourceAsStream("merge1.json"));
+        String json2 = IOUtils.toString(TestMeta.class.getResourceAsStream("merge2.json"));
+
+        String result = CatalogJsonUtils.mergeJson(json1, json2, true);
+
+        JsonNode node = CatalogJsonUtils.getMapper().readTree(result);
+
+        Assert.assertEquals("replaced", node.get("replace").asText());
+        Assert.assertEquals("leavealone", node.get("leavealone").asText());
         Assert.assertTrue(node.get("makenull").isNull());
         Assert.assertTrue(node.get("makeobjnull").isNull());
         Assert.assertEquals("added", node.get("added").asText());
@@ -51,6 +80,7 @@ public class TestUtils {
         Assert.assertEquals("added", added.get("added").asText());
     }
 
+
     @Test
     public void testMergeFailObjToVal() throws Exception {
         String json1 = IOUtils.toString(TestMeta.class.getResourceAsStream("merge1.json"));
@@ -58,7 +88,7 @@ public class TestUtils {
 
         IllegalArgumentException expect = null;
         try {
-            String result = CatalogJsonUtils.mergeJson(json1, json2);
+            String result = CatalogJsonUtils.mergeJson(json1, json2, true);
         } catch (IllegalArgumentException e) {
             expect = e;
         }

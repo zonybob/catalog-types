@@ -46,4 +46,32 @@ public class ProducerInfo {
 		ext.put(key, value);
 	}
 
+	public static class Builder {
+	    ProducerInfo _pi = new ProducerInfo();
+	    public Builder(){}
+	    
+	    public ProducerInfo build(){
+	        return _pi;
+	    }
+	    
+	    public ProducerInfo.Builder name(String name){
+	        _pi.name = name;
+	        return this;
+	    }
+	    
+        public ProducerInfo.Builder node(String node){
+            _pi.node = node;
+            return this;
+        }
+
+        public ProducerInfo.Builder version(String version){
+            _pi.version = version;
+            return this;
+        }
+        
+        public ProducerInfo.Builder ext(String key, Object value){
+            _pi.ext.put(key, value);
+            return this;
+        }
+	}
 }
