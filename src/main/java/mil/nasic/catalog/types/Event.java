@@ -9,22 +9,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Event {
 
-	
+    /**
+     * Support arbitrary json events...
+     */
+    private Map<String, Object> ext = new HashMap();
 
-	/**
-	 * Support arbitrary json events...
-	 */
-	private Map<String, Object> ext = new HashMap();
-	
-	
-	@JsonAnyGetter
-	public Map<String, Object> getExt() {
-		return ext;
-	}
+    @JsonAnyGetter
+    public Map<String, Object> getExt() {
+        return ext;
+    }
 
-	@JsonAnySetter
-	public void add(String key, Object value) {
-		ext.put(key, value);
-	}
+    @JsonAnySetter
+    public void add(String key, Object value) {
+        ext.put(key, value);
+    }
 
 }

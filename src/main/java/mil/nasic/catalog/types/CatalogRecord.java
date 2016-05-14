@@ -26,8 +26,20 @@ public class CatalogRecord {
 
     private List<Location> locations = new ArrayList();
 
-    private Map<String, Object> ext = new HashMap();    
-    
+    private Map<String, Object> ext = new HashMap();
+
+    public CatalogRecord() {
+        super();
+    }
+
+    public CatalogRecord(String id, String type, Meta meta, List<Location> locations, Map<String, Object> ext) {
+        super();
+        this.id = id;
+        this.type = type;
+        this.meta = meta;
+        this.locations = locations;
+        this.ext = ext;
+    }
 
     public String getId() {
         return id;
