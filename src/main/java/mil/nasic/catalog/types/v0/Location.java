@@ -24,7 +24,7 @@ public class Location {
     private DateTime validEnd;
     private String hashSha256;
     private String type;
-    private String compression;
+    private String compression = "none";
     private String uri;
     private Long size;
 
@@ -80,6 +80,7 @@ public class Location {
         this.type = type;
     }
 
+    
     public String getCompression() {
         return compression;
     }
@@ -104,4 +105,10 @@ public class Location {
         this.size = size;
     }
 
+    @Override
+    public String toString() {
+        return "Location{" + "filename=" + filename + ", validStart=" + validStart + ", validEnd=" + validEnd + ", hashSha256=" + hashSha256 + ", type=" + type + ", compression=" + compression + ", uri=" + uri + ", size=" + size + '}';
+    }
+
+    
 }

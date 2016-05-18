@@ -12,12 +12,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
 import com.fasterxml.jackson.datatype.jsonorg.JsonOrgModule;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import jdk.internal.org.xml.sax.InputSource;
 import org.apache.commons.io.FilenameUtils;
 import org.json.JSONObject;
 
@@ -71,17 +73,15 @@ public class CatalogMessage {
     }
 
     public static CatalogMessage fromString(String json) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new JodaModule());
-        mapper.registerModule(new JsonOrgModule());
-        return mapper.readValue(json, CatalogMessage.class);
+        return new ObjectMapper().registerModules(new JsonOrgModule(), new JodaModule()).readValue(json, CatalogMessage.class);
+    }
+    
+    public static CatalogMessage fromStream(InputStream is) throws IOException {
+        return new ObjectMapper().registerModules(new JsonOrgModule(), new JodaModule()).readValue(is, CatalogMessage.class);
     }
 
     public String toJson() throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new JodaModule());
-        mapper.registerModule(new JsonOrgModule());
-        return mapper.writeValueAsString(this);
+        return new ObjectMapper().registerModules(new JsonOrgModule(), new JodaModule()).writeValueAsString(this);
     }
 
     @JsonIgnore
