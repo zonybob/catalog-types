@@ -6,6 +6,11 @@
 package mil.nasic.catalog.types.v0;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.joda.JodaModule;
+import com.fasterxml.jackson.datatype.jsonorg.JsonOrgModule;
+
 import java.util.List;
 import org.json.JSONObject;
 
@@ -15,52 +20,52 @@ import org.json.JSONObject;
  */
 public class Document {
 
-        private String id;
+	private String id;
 
-        private String dataType;
+	private String dataType;
 
-        private List<Location> locations;
+	private List<Location> locations;
 
-        private JSONObject meta;
+	private JSONObject meta;
 
-        public Document() {
-        }
+	public String toJson() throws JsonProcessingException {
+		return new ObjectMapper().registerModules(new JsonOrgModule(), new JodaModule()).writeValueAsString(this);
+	}
 
-        public String getId() {
-            return id;
-        }
+	public Document() {
+	}
 
-        public void setId(String id) {
-            this.id = id;
-        }
+	public String getId() {
+		return id;
+	}
 
-        @JsonProperty("data_type")
-        public String getDataType() {
-            return dataType;
-        }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-        public void setDataType(String dataType) {
-            this.dataType = dataType;
-        }
+	@JsonProperty("data_type")
+	public String getDataType() {
+		return dataType;
+	}
 
-        public List<Location> getLocations() {
-            return locations;
-        }
+	public void setDataType(String dataType) {
+		this.dataType = dataType;
+	}
 
-        public void setLocations(List<Location> locations) {
-            this.locations = locations;
-        }
+	public List<Location> getLocations() {
+		return locations;
+	}
 
-        public JSONObject getMeta() {
-            return meta;
-        }
+	public void setLocations(List<Location> locations) {
+		this.locations = locations;
+	}
 
-        public void setMeta(JSONObject meta) {
-            this.meta = meta;
-        }
-        
-        
-        
+	public JSONObject getMeta() {
+		return meta;
+	}
 
-    }
+	public void setMeta(JSONObject meta) {
+		this.meta = meta;
+	}
 
+}
