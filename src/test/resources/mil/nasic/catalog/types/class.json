@@ -1,0 +1,27 @@
+{  
+   "marking":"UNCLASSIFIED//TK//REL TO USA, GBR",
+   "classification":"U",
+   "ownerProducer":"USA",
+   "classificationReason":[  
+      "1.4(b)"
+   ],
+   "classifiedBy":[  
+      "John Doe, Position Title"
+   ],
+   "declassDate":"2010-01-01",
+   "sciControls":[  
+      "ST"
+   ],
+   "disseminationControls":[  
+      "USA"
+   ],
+   "fgiSourceOpen":[  
+      "AUS",
+      "NZL",
+      "NATO"
+   ],
+   "realeasableTo":[  
+      "AUS",
+      "AUS"
+   ]
+}
