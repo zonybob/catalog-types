@@ -4,7 +4,7 @@
 	<groupId>mil.nasic.catalog</groupId>
 	<artifactId>catalog-types</artifactId>
 	<version>0.2-SNAPSHOT</version>
-	<name>Catalog IC Types</name>
+	<name>Catalog Types</name>
 	<description>Defines JSON format of Catalog types, CatalogRecord and Event types, and provides object serialization / deserialization.</description>
 
 
@@ -41,13 +41,11 @@
 			<version>${geo-json.version}</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -69,26 +67,9 @@
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
-		 <type>jar</type>
+			<type>jar</type>
 		</dependency>
-	 <dependency>
-	  <groupId>org.json</groupId>
-	  <artifactId>json</artifactId>
-	  <version>20151123</version>
-	  <type>jar</type>
-	 </dependency>
-	 <dependency>
-	  <groupId>com.fasterxml.jackson.datatype</groupId>
-	  <artifactId>jackson-datatype-json-org</artifactId>
-	  <version>2.1.2</version>
-	  <type>jar</type>
-	 </dependency>
-	 <dependency>
-	  <groupId>commons-lang</groupId>
-	  <artifactId>commons-lang</artifactId>
-	  <version>2.6</version>
-	  <type>jar</type>
-	 </dependency>
+
 	</dependencies>
 
 	<build>
