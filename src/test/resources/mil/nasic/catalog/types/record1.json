@@ -1,6 +1,6 @@
 {
 	"id": "123456789",
-	"data_type": "something",
+	"dataType": "something",
 	"locations" : [
 	  { "name" : "loc1", "uri" : "uri1", "file_size":12345}],
 	"meta": {

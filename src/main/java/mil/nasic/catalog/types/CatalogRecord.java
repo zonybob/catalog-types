@@ -21,7 +21,6 @@ public class CatalogRecord
 
   private String              id;
 
-  @JsonProperty(value = "data_type")
   private String              dataType;
 
   private Meta                meta;

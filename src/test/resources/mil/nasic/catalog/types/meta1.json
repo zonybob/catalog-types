@@ -1,5 +1,5 @@
-{
-   "source":{
+{  
+   "source":{  
       "fileName":"9959064.s1-nitf.c6ce70f8-8579-4d04-9950-b010aaae56a1.nitf",
       "fileFormat":"ext",
       "fileSource":"ext system 1",
@@ -9,25 +9,29 @@
       "deliveryTime":"2009-10-20T16:18:22.123Z",
       "discoveredTime":"2009-10-20T16:18:22.123Z"
    },
-   "metaProducer" : {
-      "producer":{"name":"test producer","node":"10.10.10.10","version":"1.0.0.0.0"},
+   "metaProducer":{  
+      "producer":{  
+         "name":"test producer",
+         "node":"10.10.10.10",
+         "version":"1.0.0.0.0"
+      },
       "time":"2009-10-20T16:18:22.123Z"
    },
-   "classification":{
+   "classification":{  
       "marking":"UNCLASSIFIED//other//stuff"
    },
-   "tasking":{
+   "tasking":{  
       "requirement":"zzz123",
       "ext":"extension goes here"
    },
-   "geom":{
+   "geom":{  
       "type":"Point",
-      "coordinates":[
+      "coordinates":[  
          -104.99404,
          39.75621
       ]
    },
-   "tags":[
+   "tags":[  
       "sequence",
       "of",
       "terms"
