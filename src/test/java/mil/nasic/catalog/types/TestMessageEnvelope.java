@@ -8,13 +8,7 @@ import org.junit.Test;
 
 public class TestMessageEnvelope
 {
-  @Test
-  public void testMinimal() throws Exception
-  {
-    String json = IOUtils.toString(TestMessageEnvelope.class.getResourceAsStream("messageEnvelopeMin.json"));
-    MessageEnvelope me = CatalogJsonUtils.readObject(json, MessageEnvelope.class);
-    Assert.assertNotNull(me);
-  }
+
 
   @Test
   public void testBasic() throws Exception
@@ -22,7 +16,7 @@ public class TestMessageEnvelope
     String json = IOUtils.toString(TestMessageEnvelope.class.getResourceAsStream("messageEnvelope.json"));
     MessageEnvelope me = CatalogJsonUtils.readObject(json, MessageEnvelope.class);
     Assert.assertNotNull(me);
-    Assert.assertEquals("0.2", me.getVersion());
+    Assert.assertEquals("0.2", me.getSchemaVersion());
     Assert.assertEquals("hello", me.getMessages().get("message1"));
     Object message2 = me.getMessages().get("message2");
     Assert.assertNotNull(message2);
@@ -42,7 +36,7 @@ public class TestMessageEnvelope
     String json = IOUtils.toString(TestMessageEnvelope.class.getResourceAsStream("messageEnvelopeHistory.json"));
     MessageEnvelope me = CatalogJsonUtils.readObject(json, MessageEnvelope.class);
     Assert.assertNotNull(me);
-    Assert.assertEquals("0.2", me.getHistory().get(0).getVersion());
+    Assert.assertEquals("0.2", me.getHistory().get(0).getSchemaVersion());
 
   }
 

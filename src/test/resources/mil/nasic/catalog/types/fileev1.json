@@ -8,6 +8,7 @@
       "time":"2009-10-20T14:18:22.123Z",
       "id":"123456789"
    },
+   "schemaVersion": "0.2",
    "fileIdentified":{
       "dataType":"FRM",
       "source":{

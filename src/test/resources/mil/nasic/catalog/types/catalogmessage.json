@@ -1,6 +1,6 @@
-{
-   "header":{
-      "producer":{
+{  
+   "header":{  
+      "producer":{  
          "name":"ABC directory monitor",
          "node":"1.1.1.1",
          "version":"1.9.556"
@@ -8,12 +8,14 @@
       "time":"2009-10-20T14:18:22.123Z",
       "id":"140542016"
    },
-   "catalog":{
-      "document":{
+   "schemaVersion":"0.2",
+   "catalog":{  
+      "document":{  
          "id":"123456789",
+         "schemaVersion":"0.2",
          "type":null,
-         "meta":{
-            "source":{
+         "meta":{  
+            "source":{  
                "fileName":"9959064.s1-nitf.c6ce70f8-8579-4d04-9950-b010aaae56a1.nitf",
                "fileFormat":"ext",
                "fileSource":"ext system 1",
@@ -23,29 +25,29 @@
                "deliveryTime":"2009-10-20T16:18:22.123Z",
                "discoveredTime":"2009-10-20T16:18:22.123Z"
             },
-            "metaProducer":{
-               "producer":{
+            "metaProducer":{  
+               "producer":{  
                   "name":"test producer",
                   "node":"10.10.10.10",
                   "version":"1.0.0.0.0"
                },
                "time":"2009-10-20T16:18:22.123Z"
             },
-            "classification":{
+            "classification":{  
                "marking":"UNCLASSIFIED//other//stuff"
             },
-            "tasking":{
+            "tasking":{  
                "requirement":"zzz123",
                "ext":"extension goes here"
             },
-            "geom":{
+            "geom":{  
                "type":"Point",
-               "coordinates":[
+               "coordinates":[  
                   -104.99404,
                   39.75621
                ]
             },
-            "tags":[
+            "tags":[  
                "sequence",
                "of",
                "terms"
@@ -54,8 +56,8 @@
             "start":"2009-10-20T14:18:22.123Z",
             "end":"2009-10-20T16:18:22.123Z"
          },
-         "locations":[
-            {
+         "locations":[  
+            {  
                "name":"stage",
                "uri":"file:///somepath/file.ext"
             }

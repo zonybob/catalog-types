@@ -16,102 +16,97 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * 
  * @author jcstewart
  */
-public class CatalogRecord
-{
+public class CatalogRecord {
 
-  private String              id;
+	private String id;
 
-  private String              dataType;
+	private String schemaVersion;
 
-  private Meta                meta;
+	private String dataType;
 
-  private List<Location>      locations = new ArrayList();
+	private Meta meta;
 
-  private Map<String, Object> ext       = new HashMap();
+	private List<Location> locations = new ArrayList();
 
-  public CatalogRecord()
-  {
-    super();
-  }
+	private Map<String, Object> ext = new HashMap();
 
-  public CatalogRecord(String id, String dataType, Meta meta, List<Location> locations, Map<String, Object> ext)
-  {
-    super();
-    this.id = id;
-    this.dataType = dataType;
-    this.meta = meta;
-    this.locations = locations;
-    this.ext = ext;
-  }
+	public CatalogRecord() {
+		super();
+	}
 
-  @JsonAnySetter
-  public void add(String key, Object value)
-  {
-    ext.put(key, value);
-  }
+	public CatalogRecord(String id, String schemaVersion, String dataType, Meta meta, List<Location> locations,
+			Map<String, Object> ext) {
+		super();
+		this.id = id;
+		this.schemaVersion = schemaVersion;
+		this.dataType = dataType;
+		this.meta = meta;
+		this.locations = locations;
+		this.ext = ext;
+	}
 
-  public void addLocations(Location location)
-  {
-    locations.add(location);
-  }
+	@JsonAnySetter
+	public void add(String key, Object value) {
+		ext.put(key, value);
+	}
 
-  public String getDataType()
-  {
-    return dataType;
-  }
+	public void addLocations(Location location) {
+		locations.add(location);
+	}
 
-  @JsonAnyGetter
-  public Map<String, Object> getExt()
-  {
-    return ext;
-  }
+	public String getSchemaVersion() {
+		return schemaVersion;
+	}
 
-  public String getId()
-  {
-    return id;
-  }
+	public void setSchemaVersion(String schemaVersion) {
+		this.schemaVersion = schemaVersion;
+	}
 
-  @JsonIgnore
-  public Location getLocationFor(String name, String uri)
-  {
-    for (Location location : locations)
-    {
-      if (name.equals(location.getName()) && uri.equals(location.getUri()))
-      {
-        return location;
-      }
-    }
-    return null;
-  }
+	public String getDataType() {
+		return dataType;
+	}
 
-  public List<Location> getLocations()
-  {
-    return locations;
-  }
+	@JsonAnyGetter
+	public Map<String, Object> getExt() {
+		return ext;
+	}
 
-  public Meta getMeta()
-  {
-    return meta;
-  }
+	public String getId() {
+		return id;
+	}
 
-  public void setDataType(String dataType)
-  {
-    this.dataType = dataType;
-  }
+	@JsonIgnore
+	public Location getLocationFor(String name, String uri) {
+		for (Location location : locations) {
+			if (name.equals(location.getName()) && uri.equals(location.getUri())) {
+				return location;
+			}
+		}
+		return null;
+	}
 
-  public void setId(String id)
-  {
-    this.id = id;
-  }
+	public List<Location> getLocations() {
+		return locations;
+	}
 
-  public void setLocations(List<Location> locations)
-  {
-    this.locations = locations;
-  }
+	public Meta getMeta() {
+		return meta;
+	}
 
-  public void setMeta(Meta meta)
-  {
-    this.meta = meta;
-  }
+	public void setDataType(String dataType) {
+		this.dataType = dataType;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public void setLocations(List<Location> locations) {
+		this.locations = locations;
+	}
+
+	public void setMeta(Meta meta) {
+		this.meta = meta;
+	}
 
 }

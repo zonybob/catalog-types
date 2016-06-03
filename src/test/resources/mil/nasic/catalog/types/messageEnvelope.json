@@ -1,6 +1,6 @@
 {
 "header" : {"time":"2016-06-02T15:54:46.649Z","producer":{"name":"test producer","node":"10.10.10.10","version":"1.0.0.0.0"}},
-"version": "0.2",
+"schemaVersion": "0.2",
 "message1" : "hello",
 "message2" : {
       "text" : "world"

@@ -9,51 +9,46 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Location {
 
-    private String name;
+	private String name;
 
-    private String uri;
-    
-    @JsonProperty(value="file_size")
-    private Long fileSize;
+	private String uri;
 
+	private Long fileSize;
 
-    private Map<String, Object> ext = new HashMap();
+	private Map<String, Object> ext = new HashMap();
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getUri() {
-        return uri;
-    }
+	public String getUri() {
+		return uri;
+	}
 
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
+	public void setUri(String uri) {
+		this.uri = uri;
+	}
 
+	@JsonAnyGetter
+	public Map<String, Object> getExt() {
+		return ext;
+	}
 
-    @JsonAnyGetter
-    public Map<String, Object> getExt() {
-        return ext;
-    }
+	@JsonAnySetter
+	public void add(String key, Object value) {
+		ext.put(key, value);
+	}
 
-    @JsonAnySetter
-    public void add(String key, Object value) {
-        ext.put(key, value);
-    }
+	public Long getFileSize() {
+		return fileSize;
+	}
 
-    public Long getFileSize()
-    {
-      return fileSize;
-    }
-
-    public void setFileSize(Long fileSize)
-    {
-      this.fileSize = fileSize;
-    }
+	public void setFileSize(Long fileSize) {
+		this.fileSize = fileSize;
+	}
 
 }

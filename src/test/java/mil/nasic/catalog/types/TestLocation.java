@@ -13,7 +13,8 @@ public class TestLocation {
 		CatalogRecord rec = CatalogJsonUtils.readObject(json, CatalogRecord.class);
 
 		Assert.assertEquals("loc1", rec.getLocations().get(0).getName());
-    Assert.assertEquals(12345, rec.getLocations().get(0).getFileSize().longValue());
+		
+        Assert.assertEquals(12345, rec.getLocations().get(0).getFileSize().longValue());
 		
 	}
 

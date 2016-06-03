@@ -14,6 +14,8 @@ public class TestCatalogRecord {
 
         Assert.assertTrue(rec.getMeta().getGeom() instanceof Point);
         Assert.assertEquals( "something", rec.getDataType());
+        
+        Assert.assertEquals("0.2", rec.getSchemaVersion());
 
     }
 }
