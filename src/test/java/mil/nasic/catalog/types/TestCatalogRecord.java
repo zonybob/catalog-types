@@ -13,6 +13,7 @@ public class TestCatalogRecord {
         CatalogRecord rec = CatalogJsonUtils.readObject(json, CatalogRecord.class);
 
         Assert.assertTrue(rec.getMeta().getGeom() instanceof Point);
+        Assert.assertEquals( "something", rec.getDataType());
 
     }
 }

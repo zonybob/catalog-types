@@ -8,17 +8,13 @@ public class TestLocation {
 	@Test
 	public void testLocationEvent() throws Exception {
 
-		String json = IOUtils.toString(TestMeta.class.getResourceAsStream("locationadd.json"));
+		String json = IOUtils.toString(TestMeta.class.getResourceAsStream("record1.json"));
 
-		EventMessage message = CatalogJsonUtils.readObject(json, EventMessage.class);
+		CatalogRecord rec = CatalogJsonUtils.readObject(json, CatalogRecord.class);
 
-		LocationAddEvent addEv = (LocationAddEvent) message.getEvent();
-
-		Location loc = addEv.getLocation();
-		Assert.assertEquals("stage", loc.getName());
-		Assert.assertEquals("file:///somepath/file.ext", loc.getUri());
+		Assert.assertEquals("loc1", rec.getLocations().get(0).getName());
+    Assert.assertEquals(12345, rec.getLocations().get(0).getFileSize().longValue());
 		
-		System.out.println(CatalogJsonUtils.writeObject(message));
 	}
 
 }

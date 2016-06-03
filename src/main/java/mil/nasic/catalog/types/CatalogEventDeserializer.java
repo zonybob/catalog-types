@@ -26,18 +26,18 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 
-public class CatalogEventDeserializer extends JsonDeserializer<CatalogEvent> {
+public class CatalogEventDeserializer extends JsonDeserializer<CatalogMessage> {
 
     @Override
-    public CatalogEvent deserialize(JsonParser jsonParser, DeserializationContext deserializationContext)
+    public CatalogMessage deserialize(JsonParser jsonParser, DeserializationContext deserializationContext)
             throws IOException {
         ObjectCodec oc = jsonParser.getCodec();
         JsonNode node = oc.readTree(jsonParser);
 
         CatalogRecord rec = oc.treeToValue(node, CatalogRecord.class);
 
-        CatalogEvent ce = new CatalogEvent();
-        ce.setCatalog(rec);
+        CatalogMessage ce = new CatalogMessage();
+        //ce.setCatalog(rec);
         return ce;
     }
 }

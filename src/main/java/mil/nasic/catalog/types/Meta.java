@@ -11,73 +11,110 @@ import org.joda.time.DateTime;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 
-public class Meta {
+public class Meta
+{
 
-    private DateTime start;
-    private DateTime end;
-    private DateTime ifm_timestamp;
-    private List<String> tags = new ArrayList();
-    private GeoJsonObject geom;
-    private Classification classification;
+  private Source              source;
+  private DateTime            start;
+  private DateTime            end;
+  private List<String>        tags = new ArrayList();
+  private GeoJsonObject       geom;
+  private Classification      classification;
+  private MetaProducer        metaProducer;
+  private Tasking             tasking;
 
-    private Map<String, Object> ext = new HashMap();
+  public Tasking getTasking()
+  {
+    return tasking;
+  }
 
-    public DateTime getStart() {
-        return start;
-    }
+  public void setTasking(Tasking tasking)
+  {
+    this.tasking = tasking;
+  }
 
-    public void setStart(DateTime start) {
-        this.start = start;
-    }
+  private Map<String, Object> ext  = new HashMap();
 
-    public DateTime getEnd() {
-        return end;
-    }
+  public Source getSource()
+  {
+    return source;
+  }
 
-    public void setEnd(DateTime end) {
-        this.end = end;
-    }
+  public void setSource(Source source)
+  {
+    this.source = source;
+  }
 
-    public DateTime getIfm_timestamp() {
-        return ifm_timestamp;
-    }
+  public DateTime getStart()
+  {
+    return start;
+  }
 
-    public void setIfm_timestamp(DateTime ifm_timestamp) {
-        this.ifm_timestamp = ifm_timestamp;
-    }
+  public void setStart(DateTime start)
+  {
+    this.start = start;
+  }
 
-    public List<String> getTags() {
-        return tags;
-    }
+  public DateTime getEnd()
+  {
+    return end;
+  }
 
-    public void addTags(String tag) {
-        tags.add(tag);
-    }
+  public void setEnd(DateTime end)
+  {
+    this.end = end;
+  }
 
-    public GeoJsonObject getGeom() {
-        return geom;
-    }
+  public List<String> getTags()
+  {
+    return tags;
+  }
 
-    public void setGeom(GeoJsonObject geom) {
-        this.geom = geom;
-    }
+  public void addTags(String tag)
+  {
+    tags.add(tag);
+  }
 
-    public Classification getClassification() {
-        return classification;
-    }
+  public GeoJsonObject getGeom()
+  {
+    return geom;
+  }
 
-    public void setClassification(Classification classification) {
-        this.classification = classification;
-    }
+  public void setGeom(GeoJsonObject geom)
+  {
+    this.geom = geom;
+  }
 
-    @JsonAnyGetter
-    public Map<String, Object> getExt() {
-        return ext;
-    }
+  public Classification getClassification()
+  {
+    return classification;
+  }
 
-    @JsonAnySetter
-    public void add(String key, Object value) {
-        ext.put(key, value);
-    }
+  public void setClassification(Classification classification)
+  {
+    this.classification = classification;
+  }
+
+  @JsonAnyGetter
+  public Map<String, Object> getExt()
+  {
+    return ext;
+  }
+
+  @JsonAnySetter
+  public void add(String key, Object value)
+  {
+    ext.put(key, value);
+  }
+
+  public MetaProducer getMetaProducer()
+  {
+    return metaProducer;
+  }
+
+  public void setMetaProducer(MetaProducer metaProducer)
+  {
+    this.metaProducer = metaProducer;
+  }
 
 }

@@ -1,6 +1,8 @@
 {
 	"id": "123456789",
-	"type": null,
+	"data_type": "something",
+	"locations" : [
+	  { "name" : "loc1", "uri" : "uri1", "file_size":12345}],
 	"meta": {
 		"start": "2009-10-20T14:18:22.123Z",
 		"end": "2009-10-20T16:18:22.123Z",

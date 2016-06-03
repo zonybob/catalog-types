@@ -1,20 +1,24 @@
-{  
-   "header":{  
-      "producer":{  
+{
+   "header":{
+      "producer":{
          "name":"ABC directory monitor",
          "node":"1.1.1.1",
          "version":"1.9.556"
       },
       "time":"2009-10-20T14:18:22.123Z",
-      "guid":"123456789",
-      "parent_id" : [ "123", "456" ]
+      "id":"123456789"
    },
-   "file_identified":{
-      "data_type" : "FRM",  
-      "file":{  
-         "file_source":"ext system 1",
-         "path":"file:///path/to/staged/file1.ext",
-         "extension" : "stuff"
+   "fileIdentified":{
+      "dataType":"FRM",
+      "source":{
+         "fileName":"9959064.s1-nitf.c6ce70f8-8579-4d04-9950-b010aaae56a1.nitf",
+         "fileFormat":"ext",
+         "fileSource":"ext system 1",
+         "productId":"9959064",
+         "sensor":"T",
+         "agency":"NRO",
+         "deliveryTime":"2009-10-20T16:18:22.123Z",
+         "discoveredTime":"2009-10-20T16:18:22.123Z"
       }
    }
 }

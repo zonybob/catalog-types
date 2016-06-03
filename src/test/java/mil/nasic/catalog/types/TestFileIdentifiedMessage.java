@@ -5,20 +5,20 @@ import org.junit.Test;
 
 import org.junit.Assert;
 
-public class TestIdentifiedEvent {
+public class TestFileIdentifiedMessage {
 
 	@Test
 	public void testBasic() throws Exception {
 
-		String json = IOUtils.toString(TestIdentifiedEvent.class.getResourceAsStream("fileev1.json"));
+		String json = IOUtils.toString(TestFileIdentifiedMessage.class.getResourceAsStream("fileev1.json"));
 
-		EventMessage ev = CatalogJsonUtils.readObject(json, EventMessage.class);
+		MessageEnvelope ev = CatalogJsonUtils.readObject(json, MessageEnvelope.class);
 
 		Assert.assertNotNull(ev.getHeader());
 		Assert.assertNotNull(ev.getHeader().getProducer());
 		Assert.assertNotNull(ev.getHeader().getProducer().getName());
 
-		FileIdentifiedEvent fiev = (FileIdentifiedEvent) ev.getEvent();
+		FileIdentifiedMessage fiev = (FileIdentifiedMessage) ev.getMessages().get("fileIdentified");
 		Assert.assertEquals("FRM", fiev.getDataType());
 	}
 }

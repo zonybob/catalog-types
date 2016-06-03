@@ -22,35 +22,28 @@ import org.slf4j.LoggerFactory;
  * @author jcstewart
  *
  */
-public class EventTypeRegistry {
+public class MessageTypeRegistry {
 
-	private static final Logger log = LoggerFactory.getLogger(EventTypeRegistry.class);
+	private static final Logger log = LoggerFactory.getLogger(MessageTypeRegistry.class);
 
-	private static final Map<String, Class<? extends Event>> typeMap = new HashMap();
+	private static final Map<String, Class> typeMap = new HashMap();
 	
 	//register package types
 	static{
-		registerClass(CatalogEvent.class);		
-		registerClass(FeatureEvent.class);
-		registerClass(FileErrorEvent.class);
-		registerClass(FileIdentifiedEvent.class);
-		registerClass(LocationAddEvent.class);
-		registerClass(LocationRemoveEvent.class);
-		registerClass(MetaEvent.class);
-		registerClass(MetaErrorEvent.class);
-		registerClass(NewDataEvent.class);
+		registerClass(CatalogMessage.class);			
+		registerClass(FileIdentifiedMessage.class);
 	}
 
-	public static void registerClass(Class<? extends Event> eventClass) {
+	public static void registerClass(Class eventClass) {
 		typeMap.put(findType(eventClass), eventClass);
 	}
 
-	public static Class<? extends Event> getClassForType(String type) {
+	public static Class getClassForType(String type) {
 		return typeMap.get(type);
 	}
 
-	public static String findType(Class<? extends Event> eventClass) {
-		EventType type = (EventType) eventClass.getAnnotation(EventType.class);
+	public static String findType(Class eventClass) {
+		MessageType type = (MessageType) eventClass.getAnnotation(MessageType.class);
 		if (type == null) {
 			throw new IllegalArgumentException(eventClass.getName() + " has no EventType annotation");
 		}

@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>mil.nasic.catalog</groupId>
 	<artifactId>catalog-types</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.2-SNAPSHOT</version>
 	<name>Catalog IC Types</name>
 	<description>Defines JSON format of Catalog types, CatalogRecord and Event types, and provides object serialization / deserialization.</description>
 

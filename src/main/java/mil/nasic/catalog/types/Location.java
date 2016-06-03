@@ -5,14 +5,17 @@ import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Location {
 
     private String name;
 
     private String uri;
+    
+    @JsonProperty(value="file_size")
+    private Long fileSize;
 
-    private boolean remove = false;
 
     private Map<String, Object> ext = new HashMap();
 
@@ -32,13 +35,6 @@ public class Location {
         this.uri = uri;
     }
 
-    public boolean isRemove() {
-        return remove;
-    }
-
-    public void setRemove(boolean remove) {
-        this.remove = remove;
-    }
 
     @JsonAnyGetter
     public Map<String, Object> getExt() {
@@ -48,6 +44,16 @@ public class Location {
     @JsonAnySetter
     public void add(String key, Object value) {
         ext.put(key, value);
+    }
+
+    public Long getFileSize()
+    {
+      return fileSize;
+    }
+
+    public void setFileSize(Long fileSize)
+    {
+      this.fileSize = fileSize;
     }
 
 }
