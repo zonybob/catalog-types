@@ -10,30 +10,27 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  * @author Joel
  *
  */
-@MessageType(type = "catalog")
-public class CatalogMessage 
-{
+@MessageType(type = CatalogMessage.NAME)
+public class CatalogMessage {
 
-  private CatalogRecord document;
+	public static final String NAME = "catalog";
 
-  public CatalogMessage()
-  {
-  }
+	private CatalogRecord document;
 
-  public CatalogMessage(CatalogRecord document)
-  {
-    super();
-    this.document = document;
-  }
+	public CatalogMessage() {
+	}
 
-  public CatalogRecord getDocument()
-  {
-    return document;
-  }
+	public CatalogMessage(CatalogRecord document) {
+		super();
+		this.document = document;
+	}
 
-  public void setDocument(CatalogRecord document)
-  {
-    this.document = document;
-  }
+	public CatalogRecord getDocument() {
+		return document;
+	}
+
+	public void setDocument(CatalogRecord document) {
+		this.document = document;
+	}
 
 }
