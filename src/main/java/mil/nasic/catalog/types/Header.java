@@ -67,7 +67,7 @@ public class Header
 
     public Header.Builder id(String id)
     {
-      id = id;
+      this.id = id;
       return this;
     }
 
