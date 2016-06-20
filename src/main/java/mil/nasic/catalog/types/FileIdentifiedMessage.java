@@ -1,36 +1,32 @@
 package mil.nasic.catalog.types;
 
-@MessageType(type = "fileIdentified")
-public class FileIdentifiedMessage 
-{
+@MessageType(type = FileIdentifiedMessage.NAME)
+public class FileIdentifiedMessage {
 
-  private String dataType;
+	public static final String NAME = "fileIdentified";
 
-  private Source source;
+	private String dataType;
 
-  public FileIdentifiedMessage()
-  {
+	private Source source;
 
-  }
+	public FileIdentifiedMessage() {
 
-  public Source getSource()
-  {
-    return source;
-  }
+	}
 
-  public void setSource(Source source)
-  {
-    this.source = source;
-  }
+	public Source getSource() {
+		return source;
+	}
 
-  public String getDataType()
-  {
-    return dataType;
-  }
+	public void setSource(Source source) {
+		this.source = source;
+	}
 
-  public void setDataType(String dataType)
-  {
-    this.dataType = dataType;
-  }
+	public String getDataType() {
+		return dataType;
+	}
+
+	public void setDataType(String dataType) {
+		this.dataType = dataType;
+	}
 
 }
