@@ -3,13 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>mil.nasic.catalog</groupId>
     <artifactId>catalog-types</artifactId>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.3-SNAPSHOT</version>
     <name>Catalog Types</name>
     <description>Defines JSON format of Catalog types, CatalogRecord and Event types, and provides object serialization / deserialization.</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <ifm.bom.version>0.2-SNAPSHOT</ifm.bom.version>
+        <ifm.bom.version>0.3-SNAPSHOT</ifm.bom.version>
     </properties>
 
     <dependencyManagement>
