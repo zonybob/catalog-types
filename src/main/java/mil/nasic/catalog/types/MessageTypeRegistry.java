@@ -1,13 +1,7 @@
 package mil.nasic.catalog.types;
 
-import java.io.File;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,11 +21,15 @@ public class MessageTypeRegistry {
 	private static final Logger log = LoggerFactory.getLogger(MessageTypeRegistry.class);
 
 	private static final Map<String, Class> typeMap = new HashMap();
-	
-	//register package types
-	static{
-		registerClass(CatalogMessage.class);			
+
+	// register package types
+	static {
+		registerClass(CatalogMessage.class);
 		registerClass(FileIdentifiedMessage.class);
+		registerClass(NewDataMessage.class);
+		registerClass(LocationAddMessage.class);
+		registerClass(LocationRemoveMessage.class);
+
 	}
 
 	public static void registerClass(Class eventClass) {
