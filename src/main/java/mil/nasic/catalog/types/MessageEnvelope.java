@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(using = MessageEnvelopeDeserializer.class)
 public class MessageEnvelope {
-	private String schemaVersion = "0.2";
+	private String schemaVersion = "0.3";
 	private Header header;
 	private List<MessageEnvelope> history = new ArrayList();
 
