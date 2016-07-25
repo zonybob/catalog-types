@@ -20,7 +20,7 @@ public class CatalogRecord {
 
 	private String id;
 
-	private String schemaVersion = "0.2";
+	private String schemaVersion = "0.3";
 
 	private String dataType;
 
