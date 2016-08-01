@@ -1,11 +1,10 @@
 package mil.nasic.catalog.types;
 
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.joda.time.DateTime;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -29,7 +28,7 @@ public class Classification {
 	private List<String> classificationReason = new ArrayList();
 	@JsonInclude(Include.NON_EMPTY)
 	private List<String> classifiedBy = new ArrayList();
-	private DateTime declassDate;
+	private ZonedDateTime declassDate;
 	@JsonInclude(Include.NON_EMPTY)
 	private List<String> sciControls = new ArrayList();
 	@JsonInclude(Include.NON_EMPTY)
@@ -46,7 +45,7 @@ public class Classification {
 	}
 
 	public Classification(String marking, String classification, String ownerProducer, String classificationReason,
-			String classifiedBy, DateTime declassDate, String sciControls, String disseminationControls,
+			String classifiedBy, ZonedDateTime declassDate, String sciControls, String disseminationControls,
 			String fgiSourceOpen, String realeasableTo, Map<String, Object> ext) {
 		super();
 		this.marking = marking;
@@ -63,7 +62,7 @@ public class Classification {
 	}
 
 	public Classification(String marking, String classification, String ownerProducer,
-			List<String> classificationReason, List<String> classifiedBy, DateTime declassDate,
+			List<String> classificationReason, List<String> classifiedBy, ZonedDateTime declassDate,
 			List<String> sciControls, List<String> disseminationControls, List<String> fgiSourceOpen,
 			List<String> realeasableTo, Map<String, Object> ext) {
 		super();
@@ -109,11 +108,11 @@ public class Classification {
 		this.ownerProducer = ownerProducer;
 	}
 
-	public DateTime getDeclassDate() {
+	public ZonedDateTime getDeclassDate() {
 		return declassDate;
 	}
 
-	public void setDeclassDate(DateTime declassDate) {
+	public void setDeclassDate(ZonedDateTime declassDate) {
 		this.declassDate = declassDate;
 	}
 
@@ -186,7 +185,7 @@ public class Classification {
 		private List<String> classificationReason = new ArrayList();
 		@JsonInclude(Include.NON_EMPTY)
 		private List<String> classifiedBy = new ArrayList();
-		private DateTime declassDate;
+		private ZonedDateTime declassDate;
 		@JsonInclude(Include.NON_EMPTY)
 		private List<String> sciControls = new ArrayList();
 		@JsonInclude(Include.NON_EMPTY)
@@ -223,7 +222,7 @@ public class Classification {
 			return this;
 		}
 
-		public Builder declassDate(DateTime declassDate) {
+		public Builder declassDate(ZonedDateTime declassDate) {
 			this.declassDate = declassDate;
 			return this;
 		}

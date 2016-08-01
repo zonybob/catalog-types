@@ -1,12 +1,13 @@
 package mil.nasic.catalog.types;
 
 
-import org.joda.time.DateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 public class MetaProducer
 {
 
-  private DateTime     time;
+  private ZonedDateTime     time;
   private ProducerInfo producer;
 
   public MetaProducer()
@@ -14,19 +15,19 @@ public class MetaProducer
     super();
   }
 
-  public MetaProducer(DateTime time, ProducerInfo producer)
+  public MetaProducer(ZonedDateTime time, ProducerInfo producer)
   {
     super();
     this.time = time;
     this.producer = producer;
   }
 
-  public DateTime getTime()
+  public ZonedDateTime getTime()
   {
     return time;
   }
 
-  public void setTime(DateTime time)
+  public void setTime(ZonedDateTime time)
   {
     this.time = time;
   }
@@ -43,7 +44,7 @@ public class MetaProducer
 
   public static class Builder
   {
-    private DateTime             time     = new DateTime();
+    private ZonedDateTime             time     = ZonedDateTime.now(ZoneId.of("UTC"));
     private ProducerInfo.Builder producer = new ProducerInfo.Builder();
 
     public MetaProducer build()
@@ -51,7 +52,7 @@ public class MetaProducer
       return new MetaProducer(time, producer.build());
     }
 
-    public MetaProducer.Builder time(DateTime time)
+    public MetaProducer.Builder time(ZonedDateTime time)
     {
       this.time = time;
       return this;

@@ -26,7 +26,7 @@ public class TestClassification {
 		Assert.assertEquals(1, cls.getClassifiedBy().size());
 		Assert.assertEquals("John Doe, Position Title", cls.getClassifiedBy().get(0));
 		
-		Assert.assertEquals(2010, cls.getDeclassDate().getYear());
+		Assert.assertEquals(2013, cls.getDeclassDate().getYear());
 
 		Assert.assertEquals(1, cls.getSciControls().size());
 		Assert.assertEquals("ST", cls.getSciControls().get(0));
@@ -39,5 +39,13 @@ public class TestClassification {
 		
 		Assert.assertEquals(2, cls.getRealeasableTo().size());
 		Assert.assertEquals("AUS", cls.getRealeasableTo().get(0));
+		
+		System.out.println(json);
+		String test = CatalogJsonUtils.writeObject(cls);
+		System.out.println(test);
+		cls = CatalogJsonUtils.readObject(test, Classification.class);
+		test = CatalogJsonUtils.writeObject(cls);
+		System.out.println(test);
+
 	}
 }

@@ -1,9 +1,8 @@
 package mil.nasic.catalog.types;
 
+import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.joda.time.DateTime;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -20,8 +19,8 @@ public class Source
   private String              agency;
   private String              uri;
   private String              sha1Hash;
-  private DateTime            deliveryTime;
-  private DateTime            discoveredTime;
+  private ZonedDateTime       deliveryTime;
+  private ZonedDateTime       discoveredTime;
 
   @JsonAnySetter
   public void add(String key, Object value)
@@ -34,12 +33,12 @@ public class Source
     return agency;
   }
 
-  public DateTime getDeliveryTime()
+  public ZonedDateTime getDeliveryTime()
   {
     return deliveryTime;
   }
 
-  public DateTime getDiscoveredTime()
+  public ZonedDateTime getDiscoveredTime()
   {
     return discoveredTime;
   }
@@ -85,12 +84,12 @@ public class Source
     this.agency = agency;
   }
 
-  public void setDeliveryTime(DateTime deliveryTime)
+  public void setDeliveryTime(ZonedDateTime deliveryTime)
   {
     this.deliveryTime = deliveryTime;
   }
 
-  public void setDiscoveredTime(DateTime discoveredTime)
+  public void setDiscoveredTime(ZonedDateTime discoveredTime)
   {
     this.discoveredTime = discoveredTime;
   }

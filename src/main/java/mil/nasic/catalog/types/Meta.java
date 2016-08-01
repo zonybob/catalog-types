@@ -1,12 +1,12 @@
 package mil.nasic.catalog.types;
 
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.geojson.GeoJsonObject;
-import org.joda.time.DateTime;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -15,8 +15,8 @@ public class Meta
 {
 
   private Source              source;
-  private DateTime            start;
-  private DateTime            end;
+  private ZonedDateTime       start;
+  private ZonedDateTime       end;
   private List<String>        tags = new ArrayList();
   private GeoJsonObject       geom;
   private Classification      classification;
@@ -45,22 +45,22 @@ public class Meta
     this.source = source;
   }
 
-  public DateTime getStart()
+  public ZonedDateTime getStart()
   {
     return start;
   }
 
-  public void setStart(DateTime start)
+  public void setStart(ZonedDateTime start)
   {
     this.start = start;
   }
 
-  public DateTime getEnd()
+  public ZonedDateTime getEnd()
   {
     return end;
   }
 
-  public void setEnd(DateTime end)
+  public void setEnd(ZonedDateTime end)
   {
     this.end = end;
   }

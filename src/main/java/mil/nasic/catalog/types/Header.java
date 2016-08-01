@@ -1,13 +1,12 @@
 package mil.nasic.catalog.types;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.UUID;
-
-import org.joda.time.DateTime;
 
 public class Header
 {
-
-  private DateTime     time;
+  private ZonedDateTime time;
   private String       id;
   private ProducerInfo producer;
 
@@ -16,7 +15,7 @@ public class Header
     super();
   }
 
-  public Header(DateTime time, String id, ProducerInfo producer)
+  public Header(ZonedDateTime time, String id, ProducerInfo producer)
   {
     super();
     this.time = time;
@@ -24,12 +23,12 @@ public class Header
     this.producer = producer;
   }
 
-  public DateTime getTime()
+  public ZonedDateTime getTime()
   {
     return time;
   }
 
-  public void setTime(DateTime time)
+  public void setTime(ZonedDateTime time)
   {
     this.time = time;
   }
@@ -56,7 +55,7 @@ public class Header
 
   public static class Builder
   {
-    private DateTime             time     = new DateTime();
+    private ZonedDateTime        time     = ZonedDateTime.now(ZoneId.of("UTC"));
     private String               id       = UUID.randomUUID().toString();
     private ProducerInfo.Builder producer = new ProducerInfo.Builder();
 
@@ -71,7 +70,7 @@ public class Header
       return this;
     }
 
-    public Header.Builder time(DateTime time)
+    public Header.Builder time(ZonedDateTime time)
     {
       this.time = time;
       return this;
