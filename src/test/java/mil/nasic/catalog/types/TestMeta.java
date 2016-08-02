@@ -6,10 +6,9 @@ import org.geojson.Point;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TestMeta
-{
+public class TestMeta {
 
-  @Test
+	@Test
 	public void testMeta() throws Exception {
 
 		String json = IOUtils.toString(TestMeta.class.getResourceAsStream("meta1.json"));
@@ -17,13 +16,11 @@ public class TestMeta
 
 		Assert.assertTrue(meta.getGeom() instanceof Point);
 		Assert.assertTrue(meta.getClassification().getMarking().contains("UNCLASS"));
-		
+
 		Assert.assertNotNull(meta.getSource().getDeliveryTime());
 		Assert.assertNotNull(meta.getMetaProducer().getProducer().getVersion());
-		
-    Assert.assertEquals("zzz123",meta.getTasking().getRequirement());
-    Assert.assertEquals("extension goes here",meta.getTasking().getExt().get("ext"));
-		
+
+		Assert.assertEquals("extension goes here", meta.getTasking().getExt().get("ext"));
 
 	}
 

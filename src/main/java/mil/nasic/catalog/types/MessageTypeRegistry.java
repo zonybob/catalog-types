@@ -25,11 +25,8 @@ public class MessageTypeRegistry {
 	// register package types
 	static {
 		registerClass(CatalogMessage.class);
-		registerClass(FileIdentifiedMessage.class);
-		registerClass(NewDataMessage.class);
 		registerClass(LocationAddMessage.class);
 		registerClass(LocationRemoveMessage.class);
-
 	}
 
 	public static void registerClass(Class eventClass) {

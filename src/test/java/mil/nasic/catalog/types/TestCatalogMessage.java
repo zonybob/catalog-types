@@ -15,7 +15,7 @@ public class TestCatalogMessage {
         
         CatalogMessage catEvent = (CatalogMessage) evM.getMessages().get("catalog");
 
-        Assert.assertTrue(catEvent.getDocument().getMeta().getGeom() instanceof Point);
+        Assert.assertTrue(catEvent.getMeta().getGeom() instanceof Point);
 
     }
 }

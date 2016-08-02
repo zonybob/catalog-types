@@ -1,37 +1,43 @@
 package mil.nasic.catalog.types;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 
-public class Tasking
-{
-  private String requirement;
+public class Tasking {
 
-  private Map<String, Object> ext  = new HashMap();
+	private String taskName;
+	private List<Requirement> requirements = new ArrayList();
+	private Map<String, Object> ext = new HashMap();
 
-  public String getRequirement()
-  {
-    return requirement;
-  }
+	@JsonAnyGetter
+	public Map<String, Object> getExt() {
+		return ext;
+	}
 
-  public void setRequirement(String requirement)
-  {
-    this.requirement = requirement;
-  }
+	@JsonAnySetter
+	public void add(String key, Object value) {
+		ext.put(key, value);
+	}
 
-  @JsonAnyGetter
-  public Map<String, Object> getExt()
-  {
-    return ext;
-  }
+	public String getTaskName() {
+		return taskName;
+	}
 
-  @JsonAnySetter
-  public void add(String key, Object value)
-  {
-    ext.put(key, value);
-  }
+	public void setTaskName(String taskName) {
+		this.taskName = taskName;
+	}
+
+	public List<Requirement> getRequirements() {
+		return requirements;
+	}
+
+	public void setRequirements(List<Requirement> requirements) {
+		this.requirements = requirements;
+	}
 
 }
