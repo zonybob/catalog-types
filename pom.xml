@@ -3,13 +3,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>mil.nasic.catalog</groupId>
 	<artifactId>catalog-types</artifactId>
-	<version>0.3-SNAPSHOT</version>
+	<version>0.4-SNAPSHOT</version>
 	<name>Catalog Types</name>
 	<description>Defines JSON format of Catalog types, CatalogRecord and Event types, and provides object serialization / deserialization.</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<ifm.bom.version>0.3-SNAPSHOT</ifm.bom.version>
+		<ifm.bom.version>0.4-SNAPSHOT</ifm.bom.version>
 	</properties>
 
 	<dependencyManagement>
@@ -35,13 +35,7 @@
 			<artifactId>jackson-annotations</artifactId>
 		</dependency>
 
-		<!-- support joda datetime **NOOOO JODA TIME IT KILLS MY SOUL** <dependency> 
-			<groupId>com.fasterxml.jackson.datatype</groupId> <artifactId>jackson-datatype-joda</artifactId> 
-			<exclusions> <exclusion> <groupId>joda-time</groupId> <artifactId>joda-time</artifactId> 
-			</exclusion> </exclusions> </dependency> <dependency> <groupId>joda-time</groupId> 
-			<artifactId>joda-time</artifactId> </dependency> -->
 		<dependency>
-			<!-- use java.time instead -->
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jsr310</artifactId>
 		</dependency>
