@@ -1,0 +1,43 @@
+
+{  
+            "source":{  
+               "fileName":"9959064.s1-nitf.c6ce70f8-8579-4d04-9950-b010aaae56a1.nitf",
+               "fileFormat":"ext",
+               "fileSource":"ext system 1",
+               "productId":"9959064",
+               "sensor":"T",
+               "agency":"NRO",
+               "deliveryTime":"2009-10-20T16:18:22.123Z",
+               "discoveredTime":"2009-10-20T16:18:22.123Z"
+            },
+            "metaProducer":{  
+               "producer":{  
+                  "name":"test producer",
+                  "node":"10.10.10.10",
+                  "version":"1.0.0.0.0"
+               },
+               "time":"2009-10-20T16:18:22.123Z"
+            },
+            "classification":{  
+               "marking":"UNCLASSIFIED//other//stuff"
+            },
+            "tasking":{  
+               "requirement":"zzz123",
+               "ext":"extension goes here"
+            },
+            "geom":{  
+               "type":"Point",
+               "coordinates":[  
+                  -104.99404,
+                  39.75621
+               ]
+            },
+            "tags":[  
+               "sequence",
+               "of",
+               "terms"
+            ],
+            "extensible":"stuff",
+            "start":"2009-10-20T14:18:22.123Z",
+            "end":"2009-10-20T16:18:22.123Z"
+    }
