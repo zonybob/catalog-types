@@ -9,15 +9,16 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<ifm.bom.version>0.4-SNAPSHOT</ifm.bom.version>
+		<catalog.version>0.4-SNAPSHOT</catalog.version>
+		<catalog.groupId>mil.nasic.catalog</catalog.groupId>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>mil.nasic.catalog</groupId>
+				<groupId>${catalog.groupId}</groupId>
 				<artifactId>bom</artifactId>
-				<version>${ifm.bom.version}</version>
+				<version>${catalog.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
